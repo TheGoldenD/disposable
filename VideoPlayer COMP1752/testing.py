@@ -22,11 +22,11 @@ def saveClear():
     listbox.pack(padx = 10, pady = 10)
 
 entry_list = []
-for _ in range(6):
+for _ in range(5):
     ent_var = StringVar()
-    ent = Entry(root, textvariable = ent_var)
+    entry = Entry(root, textvariable = ent_var)
     entry_list.append(ent_var)
-    ent.pack(padx = 10, pady = 10)
+    entry.pack(padx = 10, pady = 10)
 
 but = Button(root, text = 'Save and Clear', command = saveClear)
 but.pack(padx = 10, pady = 10)
