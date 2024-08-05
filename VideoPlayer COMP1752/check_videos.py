@@ -5,12 +5,12 @@ import tkinter.scrolledtext as tkst
 import video_library as lib
 import font_manager as fonts
 
-
+#Function to clear and show the available video info
 def set_text(text_area, content):
-    text_area.delete("1.0", tk.END)
-    text_area.insert(1.0, content)
+    text_area.delete("1.0", tk.END) #delete the existing content
+    text_area.insert(1.0, content)  #add the original content
 
-
+#Create the GUI
 class CheckVideos():
     def __init__(self, window):
         window.geometry("750x350")
@@ -38,14 +38,14 @@ class CheckVideos():
         self.status_lbl.grid(row=2, column=0, columnspan=4, sticky="W", padx=10, pady=10)
 
         self.list_videos_clicked()
-
+    #Function for the button
     def check_video_clicked(self):
-        key = self.input_txt.get()
-        name = lib.get_name(key)
+        key = self.input_txt.get() #Get key from user input
+        name = lib.get_name(key)   #Get name from the key from the said input
         if name is not None:
-            director = lib.get_director(key)
-            rating = lib.get_rating(key)
-            play_count = lib.get_play_count(key)
+            director = lib.get_director(key) #Get info from the library
+            rating = lib.get_rating(key)    #Get info from the library
+            play_count = lib.get_play_count(key)    #Get info from the library
             video_details = f"{name}\n{director}\nrating: {rating}\nplays: {play_count}"
             set_text(self.video_txt, video_details)
         else:
@@ -53,7 +53,7 @@ class CheckVideos():
         self.status_lbl.configure(text="Check Video button was clicked!")
 
     def list_videos_clicked(self):
-        video_list = lib.list_all()
+        video_list = lib.list_all() #List all video and info
         set_text(self.list_txt, video_list)
         self.status_lbl.configure(text="List Videos button was clicked!")
 
